@@ -1,0 +1,71 @@
+<h2 >{{menu_name | uppercase}}</h2>
+
+<ul class = "tools">
+  <li *ngFor = "let tool of tools"
+   [class.selected]="tool === selectedTool && Selecting" 
+   (click)="onSelect(tool)">
+    <span class = "badge">{{ tool.id }}</span>{{ tool.name }}
+  </li>
+</ul>
+
+<div *ngIf = "Selecting">
+    <div [ngSwitch]= "selectedTool.id">
+        <span *ngSwitchCase = "1">
+            <ul class = "systems">
+                <li *ngFor = "let system of systems">
+                    <div><span>System: </span>{{system.name}} {{system.version}}</div>
+                    <div>
+                      <label>PC Name:
+                        <input [(ngModel)]="system.PC_name" placeholder="PC_name"/>
+                      </label>
+                    </div>
+                    <div>
+                      <label>Doman:
+                        <span>{{system.PC_name}}.</span>
+                        <input [(ngModel)]="system.doman" placeholder="doman"/>
+                      </label>
+                    </div>
+                </li>
+              </ul>
+        </span>
+        <span *ngSwitchCase = "2">
+            <ul class = "systems">
+                <li *ngFor = "let system of systems">
+                    <div><span>2_System: </span>{{system.name}} {{system.version}}</div>
+                    <div>
+                      <label>PC Name:
+                        <input [(ngModel)]="system.PC_name" placeholder="PC_name"/>
+                      </label>
+                    </div>
+                    <div>
+                      <label>Doman:
+                        <span>{{system.PC_name}}.</span>
+                        <input [(ngModel)]="system.doman" placeholder="doman"/>
+                      </label>
+                    </div>
+                </li>
+              </ul>
+        </span>
+        <span *ngSwitchCase = "3">
+            <ul class = "systems">
+                <li *ngFor = "let system of systems">
+                    <div><span>3_System: </span>{{system.name}} {{system.version}}</div>
+                    <div>
+                      <label>PC Name:
+                        <input [(ngModel)]="system.PC_name" placeholder="PC_name"/>
+                      </label>
+                    </div>
+                    <div>
+                      <label>Doman:
+                        <span>{{system.PC_name}}.</span>
+                        <input [(ngModel)]="system.doman" placeholder="doman"/>
+                      </label>
+                    </div>
+                </li>
+              </ul>
+        </span>
+    </div>
+</div>
+
+
+
